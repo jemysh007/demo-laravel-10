@@ -20,6 +20,7 @@ Route::post('signup', [RegisterController::class, 'signup']);
 Route::post('signin', [RegisterController::class, 'signin']);
 Route::middleware('auth:api')->any('/stocks', [StockController::class, 'list']);
 Route::middleware('auth:api')->post('/save-stocks', [StockController::class, 'save']);
+Route::middleware('auth:api')->any('/delete-stocks', [StockController::class, 'delete']);
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
